@@ -29,8 +29,8 @@ public class Controller {
         return cinemark.toString();
     }
 
-    public void comprarSilla(int fila, int asientoEnFila) {
-        cinemark.reservarAsiento(fila, asientoEnFila);
+    public void comprarSilla(int Numfila, int asientoEnFila) {
+        cinemark.reservarAsiento(Numfila, asientoEnFila);
     }
 
     public int cantidadFilas() {
@@ -48,6 +48,27 @@ public class Controller {
     public MatrizNumerica getMatriz2() {
         return matriz2;
     }
+
+public MatrizNumerica sumaMatrices() {
+    int Numfilas = matriz1.getMatriz().length;
+    int Numcolumnas = matriz1.getMatriz()[0].length;
+
+    MatrizNumerica resultado = new MatrizNumerica(Numfilas, Numcolumnas);
+
+    for (int i = 0; i < Numfilas; i++) {
+        for (int j = 0; j < Numcolumnas; j++) {
+            int valorSuma = matriz1.getMatriz()[i][j] + matriz2.getMatriz()[i][j];
+            resultado.insertarValor(i, j, valorSuma);
+        }
+    }
+
+    return resultado;
+}
+
+public void crearMatrices(int Numfilas, int Numcolumnas) {
+    matriz1 = new MatrizNumerica(Numfilas, Numcolumnas);
+    matriz2 = new MatrizNumerica(Numfilas, Numcolumnas);
+}
 
 
 

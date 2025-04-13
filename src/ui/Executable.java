@@ -35,19 +35,42 @@ public class Executable {
 
     public void run() {
 
-        System.out.println("Inserte los numeros de la matriz 1: ");
-        for(int i = 0; i < 2; i++) {
-            for(int j = 0; j < 2; j++) {
-                System.out.println("Insertar dato en fila " + i + " y columna " + j + " : ");
-                int valor = escaner.nextInt();
-                escaner.nextLine();
-                cont.getMatriz1().insertarValor(i, j, valor);
+    System.out.println("¿Cuántas filas quiere que tengan las matrices?");
+    int Numfilas = escaner.nextInt();
+    escaner.nextLine();
+
+    System.out.println("¿Cuántas columnas quiere que tengan las matrices?");
+    int Numcolumnas = escaner.nextInt();
+    escaner.nextLine();
+
+    cont.crearMatrices(Numfilas, Numcolumnas);
+
+    System.out.println("Inserte los numeros de la matriz 1: ");
+    for(int i = 0; i < Numfilas; i++) {
+        for(int j = 0; j < Numcolumnas; j++) {
+            System.out.println("Insertar dato en fila " + i + " y columna " + j + " : ");
+            int valor = escaner.nextInt();
+            escaner.nextLine();
+            cont.getMatriz1().insertarValor(i, j, valor);
+            }
+        }
+
+    System.out.println("Inserte los numeros de la matriz 1: ");
+    for(int i = 0; i < Numfilas; i++) {
+        for(int j = 0; j < Numcolumnas; j++) {
+            System.out.println("Insertar dato en fila " + i + " y columna " + j + " : ");
+            int valor = escaner.nextInt();
+            escaner.nextLine();
+            cont.getMatriz2().insertarValor(i, j, valor);
             }
         }
     
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                System.out.print(cont.getMatriz1().getMatriz()[i][j] + " ");
+    System.out.println("\nMatriz Resultado (suma de las dos matrices):");
+    int[][] resultado = cont.sumaMatrices().getMatriz();
+    
+    for (int i = 0; i < Numfilas; i++) {
+            for (int j = 0; j < Numcolumnas; j++) {
+                System.out.print(resultado[i][j] + " ");
             }
             System.out.println();
         }
